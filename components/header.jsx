@@ -34,9 +34,9 @@ const Header = () => {
         visible ? "fixed backdrop-blur-sm" : ""
       } ${dark ? "fixed nav-color backdrop-blur shadow-md" : ""}`}
     >
-      <div id='navbar' className='w-screen 2xl:container relative'>
+      <div id='navbar' className='w-full 2xl:container mx-auto relative'>
         <div
-          className={`flex items-center justify-between relative ${
+          className={`flex items-center justify-between relative transition-all duration-300 ${
             dark ? "min-h-[4.5rem]" : " min-h-[5rem] md:min-h-[7rem]"
           }`}
         >

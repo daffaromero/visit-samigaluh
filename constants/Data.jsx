@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const Navdata = [
   {
     title: "Home",
@@ -12,12 +14,8 @@ export const Navdata = [
     reference: "destinations",
   },
   {
-    title: "Review",
-    reference: "review",
-  },
-  {
-    title: "Contact",
-    reference: "contact",
+    title: "Posts",
+    reference: "posts",
   },
 ];
 
