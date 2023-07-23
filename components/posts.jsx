@@ -11,6 +11,10 @@ const Post = () => {
   const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
     variables: { slug },
   });
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   const post = data.postBy;
   const { author, date, comments, featuredImage } = post;
 
@@ -20,38 +24,38 @@ const Post = () => {
   ];
 
   return (
-    <div className='w-full min-h-screen bg-gray-600'>
-      <div className='container mx-auto px-4 pb-8 pt-32'>
+    <div className='py-10 bg-gray-500'>
+      <div className='container mx-auto px-4 pt-16'>
         <Breadcrumb paths={breadcrumbPaths} />
-        <h1 className='text-4xl font-bold my-6'>{post.title}</h1>
+        <h1 className='text-4xl font-bold text-center mb-6'>{post.title}</h1>
 
-        <div className='my-6'>
-          {featuredImage && (
-            <img
-              className='w-full h-auto rounded-lg'
-              src={featuredImage.node.sourceUrl}
-              alt={featuredImage.node.altText}
-            />
-          )}
-          {featuredImage && featuredImage.node.caption && (
-            <p className='mt-2 text-gray-600'>{featuredImage.node.caption}</p>
-          )}
-        </div>
+        {featuredImage && (
+          <img
+            className='w-full h-auto rounded-lg shadow-lg mb-4'
+            src={featuredImage.node.sourceUrl}
+            alt={featuredImage.node.altText}
+          />
+        )}
+        {featuredImage && featuredImage.node.caption && (
+          <p className='text-center text-gray-600 mb-4'>
+            {featuredImage.node.caption}
+          </p>
+        )}
 
-        <div className='flex flex-wrap mb-6'>
+        <div className='flex justify-center'>
           {post.categories.edges.map(({ node }) => (
             <span
               key={node.slug}
-              className='bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'
+              className='bg-blue-500 text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2'
             >
               {node.name}
             </span>
           ))}
         </div>
-        <div
-          className='prose max-w-none'
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        ></div>
+
+        <div className='prose max-w-none mt-8 text-gray-800'>
+          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+        </div>
 
         <div className='mt-8 border-t border-gray-300 pt-8'>
           <h3 className='text-lg font-semibold'>Author: {author.node.name}</h3>

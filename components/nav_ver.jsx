@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { IoCaretUpOutline } from "react-icons/io5";
 
-const NavHor = ({ title, reference }) => {
+const NavVer = ({ title, reference, mobileMenuOpen }) => {
   // Define the custom paths for specific pages
   const customPaths = {
     home: "/",
@@ -14,10 +13,23 @@ const NavHor = ({ title, reference }) => {
   const href = hasCustomPath ? customPaths[reference] : `/${reference}`;
 
   return (
-    <li className='group'>
+    <li
+      className={`group ${
+        mobileMenuOpen
+          ? "opacity-100 transition-opacity duration-300"
+          : "opacity-0 invisible"
+      }`}
+    >
       <Link
         href={href}
-        className='px-2 text-[.95rem] hover:text-opacity-60 text-gray-100'
+        className={`block px-4 py-2 text-sm font-medium rounded-md ${
+          mobileMenuOpen ? "text-gray-900" : "text-gray-600"
+        } hover:text-gray-900 bg-slate-100 hover:bg-slate-200 transition-all duration-200 transform ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-2"
+        }`}
+        style={{
+          boxShadow: mobileMenuOpen ? "0 1px 2px rgba(0, 0, 0, 0.15)" : "none",
+        }}
       >
         {title}
       </Link>
@@ -25,4 +37,4 @@ const NavHor = ({ title, reference }) => {
   );
 };
 
-export default NavHor;
+export default NavVer;

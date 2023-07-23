@@ -29,7 +29,7 @@ const Second = () => {
             </div>
             <div className='flex gap-x-4'>
               <Link
-                href='/gallery/WorldGallery'
+                href='/gallery'
                 className='px-4 py-[0.6rem] lmd:py-3 lmd:px-6 bg-gray-700 text-gray-100 hover:bg-gray-800 transition-all duration-300'
               >
                 Discover more places

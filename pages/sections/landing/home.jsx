@@ -17,7 +17,7 @@ const Homepage = () => {
         {/* social, hero, scroll */}
         <Hero />
         {/* desc */}
-        <Desc />
+        {/* <Desc /> */}
       </div>
     </main>
   );

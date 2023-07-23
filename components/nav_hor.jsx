@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { IoCaretUpOutline } from "react-icons/io5";
 
 const NavHor = ({ title, reference }) => {
   const [dark, setDark] = useState(false);
@@ -38,7 +37,7 @@ const NavHor = ({ title, reference }) => {
         href={href}
         className={`px-3 mx-2 py-1 xl:mx-3 hover:text-opacity-80 ${
           dark ? "text-gray-700" : "text-gray-100"
-        }`}
+        } transition-colors duration-300`}
       >
         {title}
       </Link>

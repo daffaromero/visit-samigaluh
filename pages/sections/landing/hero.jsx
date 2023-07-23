@@ -1,58 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 
 const Hero = () => {
   const showSocialIcons = true; // Set this to true to show the social icons
 
+  const [showScrollIcon, setShowScrollIcon] = useState(true);
+
+  useEffect(() => {
+    // Add a scroll event listener to track the scroll position
+    const handleScroll = () => {
+      const heroHeight = document.getElementById("hero").offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      // If the scroll position is below the hero section, hide the scroll icon
+      setShowScrollIcon(scrollPosition < heroHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='flex flex-row justify-between items-center h-[90%]'>
-      {/* social */}
-      {showSocialIcons && (
-        <div className='flex flex-col px-5 lg:px-8'>
-          <a
-            href='https://github.com/daffaromero/visit-samigaluh'
-            className='w-5 py-2'
-          >
-            <FaGithub color='#f1f5f9' size={22} />
-          </a>
-          <a href='https://www.instagram.com/kknsamigaluh' className='w-5 py-2'>
-            <FaInstagram color='#f1f5f9' size={22} />
-          </a>
-          <a href='https://twitter.com/' className='w-5 py-2'>
-            <FaTwitter color='#f1f5f9' size={22} />
-          </a>
+    <div
+      id='hero'
+      className='bg-gradient-to-r from-blue-800 to-slate-900 text-white flex flex-col h-screen'
+    >
+      <div className='container mx-auto flex-grow flex flex-col justify-center items-center'>
+        {/* Social Icons */}
+        {showSocialIcons && (
+          <div className='fixed right-6 bottom-6 flex gap-4'>
+            <a href='https://github.com/daffaromero/visit-samigaluh'>
+              <FaGithub color='#f1f5f9' size={22} />
+            </a>
+            <a href='https://www.instagram.com/kknsamigaluh'>
+              <FaInstagram color='#f1f5f9' size={22} />
+            </a>
+          </div>
+        )}
+
+        {/* Hero Text */}
+        <div className='text-center'>
+          <h1 className='text-4xl md:text-6xl font-bold'>Samigaluh</h1>
+          <p className='mt-4 text-lg md:text-xl'>
+            Explore the Beauty of Samigaluh
+          </p>
         </div>
-      )}
-      {/* hero */}
-      <div className='flex flex-col items-center px-2 xs:px-0'>
-        <h1 className='text-3xl xs:text-4xl max-w-xs text-slate-100 font-bold text-center md:max-w-lg lg:text-[2.5rem] lg:leading-tight'>
-          Get started on planning the best trip ever
-        </h1>
-        <div className='mt-6'>
+
+        {/* Get Started Button */}
+        <div className='mt-8'>
           <Link
             href='/Start'
-            className='border text-slate-100 px-6 py-2 text-lg rounded-full backdrop-blur-sm lg:px-8 lg:py-[12px] lg:hover:px-9 lg:hover:py-[16px] md:hover:px-8 md:hover:py-[12px]  transition-all duration-300'
+            className='bg-slate-100 text-blue-800 py-3 px-8 rounded-full shadow-md text-lg hover:bg-opacity-80 transition-colors duration-300'
           >
             Get started
           </Link>
         </div>
-      </div>
-      {/* scroll */}
-      <div className='flex flex-col items-center px-5 group lg:px-8'>
-        <div className='w-[22px] h-[22px] rounded-full bg-slate-100 mb-3 group-hover:animate-bounce'></div>
-        <a
-          href='#about'
-          className='flex justify-center items-center px-1 py-2 border-2 w-5 md:w-6 rounded-full backdrop-blur'
-        >
-          <img
-            src='/arrow.png'
-            alt='scroll'
-            width={10}
-            height={10}
-            className='group-hover:w-full transition-all duration-500 w-1'
-          />
-        </a>
+
+        {/* Scroll Icon */}
+        {showScrollIcon && (
+          <div className='fixed bottom-12 animate-bounce'>
+            <a href='#about' className='text-white flex items-center'>
+              <img
+                src='/arrow.png'
+                alt='scroll'
+                width={10}
+                height={10}
+                className='w-5 mr-1'
+              />
+              Scroll
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

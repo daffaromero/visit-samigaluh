@@ -30,9 +30,9 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-transparent fixed top-0 left-0 w-full flex items-center z-50 ${
-        visible ? "fixed backdrop-blur-sm" : ""
-      } ${dark ? "fixed nav-color backdrop-blur shadow-md" : ""}`}
+      className={`fixed top-0 left-0 w-full flex items-center z-50 ${
+        visible ? "fixed bg-transparent backdrop-blur-sm" : ""
+      } ${dark ? "fixed bg-slate-100 shadow-md" : ""}`}
     >
       <div id='navbar' className='w-full 2xl:container mx-auto relative'>
         <div
