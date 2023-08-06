@@ -13,9 +13,15 @@ const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navbarDark = () => {
-    if (window.scrollY > 10 && window.scrollY < window.innerHeight - 80) {
+    if (
+      window.scrollY > 10 &&
+      window.scrollY < window.innerHeight - (window.innerHeight - 1)
+    ) {
       setDark(false);
-    } else if (window.scrollY >= window.innerHeight - 80) {
+    } else if (
+      window.scrollY >=
+      window.innerHeight - (window.innerHeight - 1)
+    ) {
       setDark(true);
     } else {
       setDark(false);
@@ -31,7 +37,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`order-3 lg:px-0 lg:order-2 w-1/4 lg:w-fit ${
+      className={`order-3 lg:px-0 flex justify-center lg:order-2 lg:w-fit ${
         dark ? "bg-slate-100" : "bg-transparent"
       }`}
     >

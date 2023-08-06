@@ -1,4 +1,3 @@
-// pages/gallery/[slug].jsx
 import React from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
@@ -26,26 +25,26 @@ const GalleryPage = () => {
     { label: post.title, href: `/gallery/${post.slug}` },
   ];
 
-  // console.log("data:", data); // Check the data object
-  // console.log("postBy:", post); // Check the postBy object
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className='w-full min-h-screen bg-gray-600'
+      className='bg-emerald-800'
     >
       <Header />
-      <div className='container mx-auto px-4 py-8 pt-32'>
-        <h1 className='text-3xl font-bold mb-4'>{post.title}</h1>
+
+      <div className='container mx-auto px-4 py-12 pt-24'>
+        <h1 className='text-4xl md:text-5xl font-bold text-center mb-8'>
+          {post.title}
+        </h1>
         <Breadcrumb paths={breadcrumbPaths} />
-        <div className='mt-8'>
-          {" "}
-          {/* Add some margin-top */}
+
+        <div className='mt-8 mx-auto max-w-screen-lg'>
           {post.content && <Gallery content={post.content} />}
         </div>
       </div>
+
       <Footer />
     </motion.div>
   );

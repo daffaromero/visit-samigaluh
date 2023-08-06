@@ -5,9 +5,9 @@ const NavHor = ({ title, reference }) => {
   const [dark, setDark] = useState(false);
 
   const navbarDark = () => {
-    if (window.scrollY > 10 && window.scrollY < window.innerHeight - 80) {
+    if (window.scrollY > 10 && window.scrollY < window.innerHeight - 1) {
       setDark(false);
-    } else if (window.scrollY >= window.innerHeight - 80) {
+    } else if (window.scrollY >= window.innerHeight - 1) {
       setDark(true);
     } else {
       setDark(false);
@@ -32,16 +32,18 @@ const NavHor = ({ title, reference }) => {
   const href = hasCustomPath ? customPaths[reference] : `/${reference}`;
 
   return (
-    <li className='group'>
-      <Link
-        href={href}
-        className={`px-3 mx-2 py-1 xl:mx-3 hover:text-opacity-80 ${
-          dark ? "text-gray-700" : "text-gray-100"
-        } transition-colors duration-300`}
-      >
-        {title}
-      </Link>
-    </li>
+    <div className='flex justify-center'>
+      <li className='group'>
+        <Link
+          href={href}
+          className={`px-3 mx-2 py-1 xl:mx-3 text-lg font-semibold hover:text-opacity-80 ${
+            dark ? "text-gray-700" : "text-gray-100"
+          } transition-colors duration-300`}
+        >
+          {title}
+        </Link>
+      </li>
+    </div>
   );
 };
 

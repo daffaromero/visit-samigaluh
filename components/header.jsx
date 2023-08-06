@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Nav from "@/components/nav";
 import Link from "next/link";
-import { FaPlaneDeparture } from "react-icons/fa";
 
 const Header = () => {
   const [visible, setVisible] = useState(false);
   const [dark, setDark] = useState(false);
   const navbarVisible = () => {
-    if (window.scrollY > 10 && window.scrollY < window.innerHeight - 80) {
+    if (
+      window.scrollY > 10 &&
+      window.scrollY < window.innerHeight - (window.innerHeight - 1)
+    ) {
       setVisible(true);
       setDark(false);
-    } else if (window.scrollY >= window.innerHeight - 80) {
+    } else if (
+      window.scrollY >=
+      window.innerHeight - (window.innerHeight - 1)
+    ) {
       setDark(true);
       setVisible(false);
     } else {
@@ -18,8 +23,6 @@ const Header = () => {
       setDark(false);
     }
   };
-
-  // console.log(visible);
 
   useEffect(() => {
     window.addEventListener("scroll", navbarVisible);
@@ -41,47 +44,22 @@ const Header = () => {
           }`}
         >
           {/* Logo */}
-          <div className='flex items-center gap-x-4 order-1 w-[25%] box-border pl-6 lmd:pl-14 lg:pl-24 2xl:pl-16'>
+          <div className='flex items-center gap-x-4 order-1 w-16 md:w-20 lg:w-40 xl:w-32 box-border pl-6 lmd:pl-14 lg:pl-24 2xl:pl-16'>
             <Link href='/'>
-              <FaPlaneDeparture
-                size={25}
-                color={`${dark ? "#374151" : "#f3f4f6"}`}
-              />
-            </Link>
-            <Link
-              href='/'
-              className={`lg:inline  text-lg sm:text-xl lg:text-[1.375rem] font-bold tracking-wide ${
-                dark ? "text-gray-700" : "text-gray-100"
-              }`}
-            >
-              Travel
+              <img src='/logo-w.png' />
             </Link>
           </div>
           {/* navigation */}
           <Nav />
           {/* login & register */}
-          <div className='order-2 lg:order-3 lg:w-[25%] box-border flex justify-center items-center lg:pr-24 2xl:pr-16 gap-x-2 lg:justify-end'>
-            <Link
-              href='/Login'
-              className={`uppercase xs:inline xs:text-sm sm:text-base tracking-widest ${
-                dark ? "text-gray-700 border-gray-700" : "text-gray-100 "
+          <div className='order-2 lg:order-3 w-full flex items-center gap-x-2 lg:justify-end md:w-40'>
+            <p
+              className={`w-full text-center uppercase xs:inline xs:text-sm sm:text-base tracking-widest ${
+                dark ? "text-gray-700 border-gray-700" : "text-gray-100"
               }`}
             >
-              log in
-            </Link>
-            <div
-              className={` h-4 sm:h-[1.5rem] w-[1px] border-l-[1px] ${
-                dark ? "border-gray-700" : "border-gray-100"
-              }`}
-            ></div>
-            <Link
-              href='/Register'
-              className={`uppercase xs:inline xs:text-sm sm:text-base tracking-widest ${
-                dark ? "text-gray-700" : "text-gray-100"
-              }`}
-            >
-              register
-            </Link>
+              SIDOHARJO
+            </p>
           </div>
         </div>
       </div>

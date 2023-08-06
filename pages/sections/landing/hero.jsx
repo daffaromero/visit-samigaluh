@@ -10,7 +10,7 @@ const Hero = () => {
   useEffect(() => {
     // Add a scroll event listener to track the scroll position
     const handleScroll = () => {
-      const heroHeight = document.getElementById("hero").offsetHeight;
+      const heroHeight = document.getElementById("hero")?.offsetHeight;
       const scrollPosition = window.scrollY;
 
       // If the scroll position is below the hero section, hide the scroll icon
@@ -26,10 +26,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div
-      id='hero'
-      className='bg-gradient-to-r from-blue-800 to-slate-900 text-white flex flex-col h-screen'
-    >
+    <div id='hero' className='text-white flex flex-col h-screen'>
       <div className='container mx-auto flex-grow flex flex-col justify-center items-center'>
         {/* Social Icons */}
         {showSocialIcons && (
@@ -45,7 +42,7 @@ const Hero = () => {
 
         {/* Hero Text */}
         <div className='text-center'>
-          <h1 className='text-4xl md:text-6xl font-bold'>Samigaluh</h1>
+          <h1 className='text-4xl md:text-6xl nt-bold'>Samigaluh</h1>
           <p className='mt-4 text-lg md:text-xl'>
             Explore the Beauty of Samigaluh
           </p>
@@ -64,7 +61,10 @@ const Hero = () => {
         {/* Scroll Icon */}
         {showScrollIcon && (
           <div className='fixed bottom-12 animate-bounce'>
-            <a href='#about' className='text-white flex items-center'>
+            <a
+              href='#about'
+              className='text-white font-bold uppercase flex items-center'
+            >
               <img
                 src='/arrow.png'
                 alt='scroll'

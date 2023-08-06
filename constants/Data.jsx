@@ -6,16 +6,20 @@ export const Navdata = [
     reference: "home",
   },
   {
-    title: "Kalurahan",
-    reference: "kalurahan",
-  },
-  {
     title: "Destinations",
     reference: "destinations",
   },
   {
     title: "Posts",
     reference: "posts",
+  },
+  {
+    title: "Gallery",
+    reference: "gallery",
+  },
+  {
+    title: "Files",
+    reference: "files",
   },
 ];
 

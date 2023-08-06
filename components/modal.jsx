@@ -13,7 +13,7 @@ const ImageModal = ({ src, alt, caption, onClose }) => {
         onClick={onClose}
       >
         <motion.div
-          className='max-w-screen-lg bg-white rounded-lg p-8 shadow-lg'
+          className='max-w-screen-lg bg-white rounded-lg p-8 shadow-lg flex flex-col'
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}

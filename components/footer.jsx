@@ -2,17 +2,17 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+    <div className='bg-gray-950 px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8'>
       <div className='grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4'>
         <div className='sm:col-span-2'>
           <a
             href='/'
-            aria-label='Go home'
-            title='Company'
-            className='inline-flex items-center'
+            aria-label='keikeien'
+            title='KKN-PPM UGM Samigaluh 2023'
+            className='text-gray-300 inline-flex items-center'
           >
             <svg
-              className='w-8 text-deep-purple-accent-400'
+              className='w-8 text-gray-300'
               viewBox='0 0 24 24'
               strokeLinejoin='round'
               strokeWidth='2'
@@ -26,45 +26,45 @@ const Footer = () => {
               <rect x='14' y='1' width='7' height='6' />
               <rect x='14' y='11' width='7' height='12' />
             </svg>
-            <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
+            <span className='ml-2 text-xl font-bold tracking-wide text-gray-300 uppercase'>
               KKN-PPM UGM Samigaluh 2023
             </span>
           </a>
           <div className='mt-6 lg:max-w-sm'>
-            <p className='text-md text-gray-800'>
+            <p className='text-md text-gray-300'>
               Tim KKN-PPM UGM Samigaluh 2023
             </p>
-            <p className='mt-2 text-md text-gray-800'>
+            <p className='mt-2 text-md text-gray-300'>
               Kalurahan Sidoharjo & Gerbosari, Kapanewon Samigaluh, Kabupaten
               Kulon Progo, Daerah Istimewa Yogyakarta
             </p>
           </div>
         </div>
         <div className='space-y-2 text-sm'>
-          <p className='text-base font-bold tracking-wide text-gray-900'>
+          <p className='text-base font-bold tracking-wide text-gray-300'>
             Kontak KKN UGM
           </p>
           <div className='flex'></div>
           <div className='flex'>
-            <p className='mr-1 text-gray-800'>Email:</p>
+            <p className='mr-1 text-gray-300 font-semibold'>Email:</p>
             <a
               href='mailto:kkn@ugm.ac.id'
               aria-label='KKN email'
               title='KKN email'
-              className='transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800'
+              className='transition-colors duration-300 text-gray-300 hover:text-emerald-500'
             >
               kkn@ugm.ac.id
             </a>
           </div>
           <div className='flex'>
-            <p className='mr-1 text-gray-800'>Address:</p>
+            <p className='mr-1 text-gray-300 font-semibold'>Address:</p>
             <a
               href='https://goo.gl/maps/Sr7VoBUJaCqpzYXY9'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='DPKM address'
               title='DPKM address'
-              className='transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800'
+              className='transition-colors duration-300 text-gray-300 hover:text-emerald-500'
             >
               69GG+6QP, Jl. Pancasila, Sagan, Caturtunggal, Kec. Depok,
               Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281
@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <span className='text-base font-bold tracking-wide text-gray-900'>
+          <span className='text-base font-bold tracking-wide text-gray-500'>
             Social
           </span>
           <div className='flex items-center mt-1 space-x-3'>

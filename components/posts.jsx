@@ -24,23 +24,10 @@ const Post = () => {
   ];
 
   return (
-    <div className='py-10 bg-gray-500'>
-      <div className='container mx-auto px-4 pt-16'>
+    <div className='py-10 bg-gray-100'>
+      <div className='container mx-auto px-4'>
         <Breadcrumb paths={breadcrumbPaths} />
         <h1 className='text-4xl font-bold text-center mb-6'>{post.title}</h1>
-
-        {featuredImage && (
-          <img
-            className='w-full h-auto rounded-lg shadow-lg mb-4'
-            src={featuredImage.node.sourceUrl}
-            alt={featuredImage.node.altText}
-          />
-        )}
-        {featuredImage && featuredImage.node.caption && (
-          <p className='text-center text-gray-600 mb-4'>
-            {featuredImage.node.caption}
-          </p>
-        )}
 
         <div className='flex justify-center'>
           {post.categories.edges.map(({ node }) => (

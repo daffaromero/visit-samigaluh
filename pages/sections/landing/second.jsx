@@ -53,9 +53,9 @@ const Second = () => {
           </div>
           {/* image */}
           <div className='w-full lmd:w-[45%] px-6 box-border'>
-            <div className="bg-[url('/pg2-2.jpg')] h-[20rem] w-full bg-cover bg-center shadow-2xl lmd:h-3/4 lg:h-[90%] relative">
+            <div className="bg-[url('/IMG_0287.jpg')] h-[20rem] w-full bg-cover bg-center shadow-2xl lmd:h-3/4 lg:h-[90%] relative">
               <div className='absolute -bottom-4 -right-4 shadow-2xl border-8 border-gray-200'>
-                <Image src='/pg2-4.jpg' alt='' width={200} height={50} />
+                <Image src='/IMG_0151.jpg' alt='' width={200} height={50} />
               </div>
             </div>
           </div>
