@@ -1,11 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Picard = ({ src, title, desc, associatedPost }) => {
-  const router = useRouter();
-
   return (
     <div className='flex flex-col gap-y-3 snap-center px-2'>
       <div className='group rounded-md overflow-hidden relative shadow-lg'>

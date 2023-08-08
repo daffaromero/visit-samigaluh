@@ -33,7 +33,7 @@ export default function PDFLoader({ file }) {
   };
 
   return (
-    <div className='min-h-screen bg-slate-700 flex flex-col items-center justify-center'>
+    <div className='min-h-screen bg-slate-700 flex flex-col items-center justify-center pt-32 pb-16'>
       <div className='pdf-container p-4 bg-white shadow-lg rounded-lg'>
         <nav className='mb-4 flex items-center'>
           <button

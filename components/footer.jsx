@@ -85,7 +85,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              href='/'
+              href='https://instagram.com/kknsamigaluh'
               className='text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400'
             >
               <svg viewBox='0 0 30 30' fill='currentColor' className='h-6'>

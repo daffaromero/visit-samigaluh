@@ -42,19 +42,19 @@ const Hero = () => {
 
         {/* Hero Text */}
         <div className='text-center'>
-          <h1 className='text-4xl md:text-6xl nt-bold'>Samigaluh</h1>
-          <p className='mt-4 text-lg md:text-xl'>
-            Explore the Beauty of Samigaluh
-          </p>
+          <h1 className='text-4xl md:text-6xl nt-bold font-medium'>
+            SIDOHARJO
+          </h1>
+          <p className='mt-4 text-lg md:text-xl'>Everything with a view</p>
         </div>
 
         {/* Get Started Button */}
         <div className='mt-8'>
           <Link
-            href='/Start'
+            href='/destinations'
             className='bg-slate-100 text-blue-800 py-3 px-8 rounded-full shadow-md text-lg hover:bg-opacity-80 transition-colors duration-300'
           >
-            Get started
+            GET STARTED
           </Link>
         </div>
 

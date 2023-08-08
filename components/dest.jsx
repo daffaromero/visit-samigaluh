@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { useQuery } from "@apollo/client";
 import { motion } from "framer-motion";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
@@ -6,7 +7,7 @@ import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import { GET_DESTINATIONS } from "@/lib/query";
 
 const Destinations = () => {
-  const { loading, error, data } = useQuery(GET_DESTINATIONS);
+  const { loading, error, data, associatedPost } = useQuery(GET_DESTINATIONS);
   const [expanded, setExpanded] = useState([]);
 
   if (loading) return <p>Loading...</p>;
@@ -27,7 +28,8 @@ const Destinations = () => {
       <div className='min-h-[calc(100vh-16rem)] bg-gray-900 pt-32'>
         <div className='flex flex-wrap justify-center gap-0'>
           {nodes.map((node, index) => {
-            const { desc, title, sourceimg } = node?.databaseFields || {};
+            const { desc, title, sourceimg, associatedPost } =
+              node?.databaseFields || {};
 
             const containerVariants = {
               hidden: {
@@ -78,46 +80,25 @@ const Destinations = () => {
                       {desc}
                     </motion.p>
                     <div className='flex items-center mt-4'>
-                      {!isExpanded && (
-                        <>
-                          <motion.button
-                            className='bg-gray-800 px-4 py-2 rounded'
-                            onClick={() => toggleDescription(index)}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Lebih Lanjut
-                          </motion.button>
-                          <motion.button
-                            className='text-gray-400 hover:text-gray-200'
-                            onClick={() => toggleDescription(index)}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FaArrowCircleDown className='ml-4' size={20} />
-                          </motion.button>
-                        </>
-                      )}
-                      {isExpanded && (
-                        <>
-                          <motion.button
-                            className='bg-gray-800 px-4 py-2 rounded'
-                            onClick={() => toggleDescription(index)}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Lebih Sedikit
-                          </motion.button>
-                          <motion.button
-                            className='text-gray-400 hover:text-gray-200'
-                            onClick={() => toggleDescription(index)}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FaArrowCircleUp className='ml-4' size={20} />
-                          </motion.button>
-                        </>
-                      )}
+                      <Link href={`/posts/${associatedPost?.slug}`} passHref>
+                        <motion.button
+                          className='bg-gray-800 px-4 py-2 rounded'
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Lebih Lanjut
+                        </motion.button>
+                      </Link>
+                      <button
+                        className='text-gray-400 hover:text-gray-200'
+                        onClick={() => toggleDescription(index)}
+                      >
+                        {isExpanded ? (
+                          <FaArrowCircleUp className='ml-4' size={20} />
+                        ) : (
+                          <FaArrowCircleDown className='ml-4' size={20} />
+                        )}
+                      </button>
                     </div>
                   </div>
                 </div>

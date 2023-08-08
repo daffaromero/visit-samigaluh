@@ -30,7 +30,7 @@ const GalleryPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className='bg-emerald-800'
+      className='bg-emerald-900'
     >
       <Header />
 

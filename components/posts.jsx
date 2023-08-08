@@ -1,27 +1,43 @@
 import React from "react";
 import Breadcrumb from "@/components/breadcrumbs";
-import { GET_POST_BY_SLUG } from "@/lib/query";
 import { useQuery } from "@apollo/client";
+import { motion } from "framer-motion";
+import { GET_POST_BY_SLUG, GET_DEST_BY_SLUG } from "@/lib/query";
 import { useRouter } from "next/router";
 
 const Post = () => {
   const router = useRouter();
   const { slug } = router.query;
 
-  const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
+  const {
+    loading: postLoading,
+    error: postError,
+    data: postData,
+  } = useQuery(GET_POST_BY_SLUG, {
     variables: { slug },
   });
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  const {
+    loading: destinationsLoading,
+    error: destinationsError,
+    data: destinationsData,
+  } = useQuery(GET_DEST_BY_SLUG, {
+    variables: { slug },
+  });
 
-  const post = data.postBy;
+  if (postLoading || destinationsLoading) return <div>Loading...</div>;
+  if (postError || destinationsError)
+    return <div>Error: {postError?.message || destinationsError?.message}</div>;
+
+  const post = postData.postBy;
   const { author, date, comments, featuredImage } = post;
 
   const breadcrumbPaths = [
     { label: "Home", href: "/" },
     { label: post.title, href: `/posts/${post.slug}` },
   ];
+
+  const destination = destinationsData.destinationBy;
 
   return (
     <div className='py-10 bg-gray-100'>
@@ -42,6 +58,7 @@ const Post = () => {
 
         <div className='prose max-w-none mt-8 text-gray-800'>
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          <p>{destination?.databaseFields?.desc}</p>
         </div>
 
         <div className='mt-8 border-t border-gray-300 pt-8'>

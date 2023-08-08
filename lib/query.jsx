@@ -132,3 +132,13 @@ export const GET_DESTINATIONS = gql`
     }
   }
 `;
+
+export const GET_DEST_BY_SLUG = gql`
+  query DestQuery($slug: String!) {
+    destinationBy(slug: $slug) {
+      databaseFields {
+        desc
+      }
+    }
+  }
+`;
