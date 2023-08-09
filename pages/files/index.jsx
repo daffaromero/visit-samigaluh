@@ -19,14 +19,14 @@ const FilePage = () => {
             description='This is the description for Card 1.'
           />
           <Card
-            title='Peta Kalurahan Sidoharjo'
+            title='PDF contoh 2'
             file='example2.pdf'
             description='This is the description for Card 2.'
           />
           <Card
             title='Booklet Pariwisata'
-            file='example3.pdf'
-            description='This is the description for Card 3.'
+            file='https://sidoharjofiles.s3.ap-southeast-1.amazonaws.com/kkn_booklet%5B1%5D.pdf'
+            description='Objek pariwisata di Kalurahan Sidoharjo.'
           />
         </div>
       </div>
