@@ -10,7 +10,8 @@ export default function App({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
       <Head>
-        <title>Visit Samigaluh</title>
+        <title>Visit Sidoharjo</title>
+        <link rel='icon' href='/logo-bw.png' />
       </Head>
       <Component {...pageProps} />
     </ApolloProvider>
